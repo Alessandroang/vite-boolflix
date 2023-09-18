@@ -13,9 +13,9 @@ export default {
 };
 </script>
 <template>
-  <div class="container mt-5">
+  <main class="container mt-5">
     <CardsList />
-  </div>
+  </main>
 </template>
 
 <style lang="scss" scoped></style>

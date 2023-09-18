@@ -25,46 +25,64 @@ export default {
           },
         })
         .then((response) => {
-          store.movies = response.data.results.map((movie) => {
-            const {
+          const moviesData = response.data.results.map((movie) => {
+            const id = movie.id;
+            const name = movie.title;
+            const original_title = movie.original_title;
+            const original_language = movie.original_language;
+            const vote_average = movie.vote_average;
+
+            return {
               id,
-              title,
+              name,
               original_title,
               original_language,
               vote_average,
-            } = movie;
-            return {
-              id,
-              name: title,
-              original_title,
-              language: original_language,
-              vote: vote_average,
             };
           });
+          store.movies = moviesData;
         });
     },
 
-    handleStartSearch() {
-      console.log("il form di ricerca è stato inviato");
-    },
-  },
+    // fetchTvSeries(queryString) {
+    //   axios
+    //     .get("https://api.themoviedb.org/3/search/tv", {
+    //       params: {
+    //         query: queryString,
+    //         api_key: "e39a0d6afdf457f94ef22d6ef6402331",
+    //       },
+    //     })
+    //     .then((response) => {
+    //       const tvSeriesData = response.data.results.map((tvSeries) => {
+    //         const id = tvSeries.id;
+    //         const title = tvSeries.name;
+    //         const original_title = tvSeries.original_name;
+    //         const original_language = tvSeries.original_language;
+    //         const vote_average = tvSeries.vote_average;
 
-  created() {
-    // this.fetchMovies();
+    //         return {
+    //           id,
+    //           name,
+    //           original_title,
+    //           original_language,
+    //           vote,
+    //         };
+    //       });
+    //       store.tvSeries = tvSeriesData;
+    //     });
+    // },
+    handlSearch(queryString) {
+      console.log(queryString);
+      if (!queryString) return;
+      this.fetchMovies(queryString);
+      this.fetchTvSeries(queryString);
+    },
   },
 };
 </script>
 <template>
-  <AppHeader @start-search="fetchMovies" />
-  <!-- 
-  <ul>
-    <li v-for="movie in store.movies" :key="movie.id">
-      {{ movie.name }}
-      {{ movie.language }}
-      {{ movie.original_title }}
-      {{ movie.vote }}
-    </li>
-  </ul> -->
+  <AppHeader @startsearch="handlSearch" />
+
   <AppMain />
 </template>
 
