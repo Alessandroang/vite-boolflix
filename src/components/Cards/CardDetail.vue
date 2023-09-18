@@ -1,4 +1,4 @@
-<!-- <script>
+<script>
 export default {
   props: {
     cardInfo: Object,
@@ -25,15 +25,15 @@ export default {
     <div class="card-body">
       <ul>
         <li>{{ cardInfo.name }}</li>
-        <li>{{ cardInfo.original_title }}</li> -->
-<!-- <li v-if="hasFlag">
+        <li>{{ cardInfo.original_title }}</li>
+        <!-- <li v-if="hasFlag">
           <img :src="flagSrc" :alt="cardInfo.name" />
         </li> -->
-<!-- <li>{{ cardInfo.original_language }}</li>
+        <li>{{ cardInfo.original_language }}</li>
         <li>{{ cardInfo.vote_average }}</li>
       </ul>
     </div>
   </div>
 </template>
 
-<style lang="scss" scoped></style> -->
+<style lang="scss" scoped></style>

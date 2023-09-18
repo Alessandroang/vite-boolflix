@@ -1,4 +1,4 @@
-<!-- <script>
+<script>
 import { store } from "../../data/store";
 
 import CardDetail from "./CardDetail.vue";
@@ -13,8 +13,8 @@ export default {
   components: { CardDetail },
 };
 </script>
-<template> -->
-<!-- <section>
+<template>
+  <section>
     <h2>Movies</h2>
     {{ store.movies.length }}
     <CardDetail
@@ -22,8 +22,8 @@ export default {
       :key="movie.id"
       :cardInfo="movie"
     />
-  </section> -->
-<!-- <section>
+  </section>
+  <!-- <section>
     <h2>Tv Series</h2>
     {{ store.tvSeries.length }}
     <CardDetail
@@ -32,6 +32,6 @@ export default {
       :cardInfo="tvSeries"
     />
   </section> -->
-<!-- </template>
+</template>
 
-<style lang="scss" scoped></style> -->
+<style lang="scss" scoped></style>

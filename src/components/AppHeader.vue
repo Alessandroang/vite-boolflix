@@ -1,4 +1,4 @@
-<!-- <script>
+<script>
 export default {
   data() {
     return {
@@ -31,4 +31,4 @@ export default {
   </nav>
 </template>
 
-<style lang="scss" scoped></style> -->
+<style lang="scss" scoped></style>

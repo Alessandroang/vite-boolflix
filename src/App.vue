@@ -44,33 +44,33 @@ export default {
         });
     },
 
-    // fetchTvSeries(queryString) {
-    //   axios
-    //     .get("https://api.themoviedb.org/3/search/tv", {
-    //       params: {
-    //         query: queryString,
-    //         api_key: "e39a0d6afdf457f94ef22d6ef6402331",
-    //       },
-    //     })
-    //     .then((response) => {
-    //       const tvSeriesData = response.data.results.map((tvSeries) => {
-    //         const id = tvSeries.id;
-    //         const title = tvSeries.name;
-    //         const original_title = tvSeries.original_name;
-    //         const original_language = tvSeries.original_language;
-    //         const vote_average = tvSeries.vote_average;
+    fetchTvSeries(queryString) {
+      axios
+        .get("https://api.themoviedb.org/3/search/tv", {
+          params: {
+            query: queryString,
+            api_key: "e39a0d6afdf457f94ef22d6ef6402331",
+          },
+        })
+        .then((response) => {
+          const tvSeriesData = response.data.results.map((tvSeries) => {
+            const id = tvSeries.id;
+            const title = tvSeries.name;
+            const original_title = tvSeries.original_name;
+            const original_language = tvSeries.original_language;
+            const vote_average = tvSeries.vote_average;
 
-    //         return {
-    //           id,
-    //           name,
-    //           original_title,
-    //           original_language,
-    //           vote,
-    //         };
-    //       });
-    //       store.tvSeries = tvSeriesData;
-    //     });
-    // },
+            return {
+              id,
+              name,
+              original_title,
+              original_language,
+              vote,
+            };
+          });
+          store.tvSeries = tvSeriesData;
+        });
+    },
     handlSearch(queryString) {
       console.log(queryString);
       if (!queryString) return;
